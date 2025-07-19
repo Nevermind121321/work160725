@@ -47,6 +47,6 @@ public class arr2d{
         return ans;
     }
     public static void main(String[] args) {
-        System.out.println(string_compression("aaaabbbccd"));
+        System.out.println(check_pal("HmHa"));
     }
 }
