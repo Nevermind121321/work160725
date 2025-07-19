@@ -46,7 +46,63 @@ public class arr2d{
         }
         return ans;
     }
+
+    //check if a string is a palindrome or not
+    public static boolean check_pal(String str){
+        int first = 0;
+        int last = str.length()-1;
+        boolean ans = false;
+        while(first<last){
+            if(str.charAt(first) == str.charAt(last)){
+                first++;
+                last--;
+                ans = true;
+            }
+            else{
+                ans = false;
+                break;
+            }
+        }
+        return ans;
+    }
+
+    public static double shortest_path(String str){
+        int x = 0;
+        int y = 0;
+        for(int i = 0;i<str.length();i++){
+            if(str.charAt(i) == 'W'){
+                x -= 1;
+            }
+            else if(str.charAt(i) == 'E'){
+                x += 1;
+            }
+            else if(str.charAt(i) == 'N'){
+                y += 1;
+            }
+            else{
+                y -= 1;
+            }
+        }
+        double displacement = Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+        return displacement;
+    }
+
+    //determine if two strings are anagrams of each other
+    public static boolean check_anagram(String str,String str2){
+        int ans = 0;
+        str = str.toLowerCase();
+        str2 = str2.toLowerCase();
+        if(str.length() == str2.length()){
+            for(int i = 0;i<str.length();i++){
+                ans  = ans ^ (str.charAt(i)^str2.charAt(i));
+            }
+        }
+        if(ans == 0){
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        System.out.println(check_pal("HmHa"));
+        System.out.println(check_anagram("naft", "fanf"));
     }
 }
